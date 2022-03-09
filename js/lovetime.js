@@ -12,17 +12,18 @@ function lovetime() {
     var todayHour = today.getHours()
     var todayMinute = today.getMinutes()
     var todaySecond = today.getSeconds()
-    // 修改这里时间即可 我的是2018.11.19
-    var t1 = Date.UTC(2018, 11, 19, 00, 00, 00)
-    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond)
+    // 修改这里时间即可 我的是2021-12-21 21:05:00
+    var t1 = Date.UTC(2021, 12, 21, 21, 05, 00)
+    var t2 = Date.UTC(todayYear, todayMonth+1, todayDate, todayHour, todayMinute, todaySecond)
+    console.log(todayYear+";"+todayMonth+";"+todayDate+";"+todayHour+";"+todayMinute+";"+todaySecond);
     var diff = t2 - t1
     var diffYears = Math.floor(diff / years)
     var diffDays = Math.floor((diff / days) - diffYears * 365)
     var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours)
     var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes)
-    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
-        minutes) / seconds)
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds)
     document.getElementById("lovetime").innerHTML = "我们已经在一起 " + diffYears + "年" + diffDays + "天" +
-        diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒啦"
+        diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒啦";
+        console.log(diff);
 }
 lovetime()
